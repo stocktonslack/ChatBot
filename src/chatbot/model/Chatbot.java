@@ -4,11 +4,11 @@ public class Chatbot
 {
 	private String name;
 	private int numberOfChats;
+	
 	/**
 	 * Creates a Chatbot Object with a specified name. Initializes the total chats to 0.
 	 * @param name The name of the chatbot.
 	 */
-	
 	public Chatbot(String name)
 	{
 		this.name = name;
@@ -18,7 +18,7 @@ public class Chatbot
 	
 	/**
 	 * Returns the name of the chatbot
-	 * @return
+	 * @return returns the name of the chatbot
 	 */
 	public String getName()
 	{
@@ -27,8 +27,8 @@ public class Chatbot
 	}
 	
 	/**
-	 * Returns the number of chats as an integer
-	 * @return
+	 * Returns the number of chats for this chatbot.
+	 * @return the current number of chats
 	 */
 	public int getNumbeOfChats()
 	{
@@ -37,7 +37,7 @@ public class Chatbot
 	
 	/**
 	 * This allows anyone to change the chatbot name.
-	 * @param name
+	 * @param name the new name for the chatbot
 	 */
 	public void setName(String name)
 	{
@@ -57,14 +57,14 @@ public class Chatbot
 	
 	/**
 	 * Check's to see if you want to quit
-	 * @param input
-	 * @return
+	 * @param input determines what you put into the box
+	 * @return returns whether or not it is okay to quit
 	 */
 	public boolean quitChecker(String input)
 	{
 		boolean okToQuit = false;
 		
-		if(input.equals("no"))
+		if(input != null && input.equals("quit"))
 		{
 			okToQuit = true;
 		}

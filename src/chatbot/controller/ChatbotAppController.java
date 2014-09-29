@@ -20,6 +20,14 @@ public class ChatbotAppController
 	}
 	
 	/**
+	 * Allows other objects accessto the keith
+	 */
+	public Chatbot getkeith()
+	{
+		return keith;
+	}
+	
+	/**
 	 * Starts the Chatbot Application.
 	 */
 	public void start()
@@ -27,7 +35,14 @@ public class ChatbotAppController
 		/**
 		 * This asks if you want to continue, if you do not then it will quit the program.
 		 */
-		String message = JOptionPane.showInputDialog(null, "Will you continue?");
+		String message = JOptionPane.showInputDialog(null, "Would you like to quit?");
+		
+		while(!keith.quitChecker(message))
+		{
+			appView.displayChatbotConversations(message);
+		}
+		
+		
 		if(keith.quitChecker(message))
 		{
 			quit();
@@ -41,7 +56,7 @@ public class ChatbotAppController
 	 */
 	private void quit()
 	{
-		JOptionPane.showMessageDialog(null, "bye");
+		JOptionPane.showMessageDialog(null, "So long, thanks for all the fish");
 		System.exit(0);
 	}
 }
