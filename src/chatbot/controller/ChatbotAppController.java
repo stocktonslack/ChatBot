@@ -13,7 +13,7 @@ public class ChatbotAppController
 	 */
 	private ChatbotView appView;
 	
-	/**
+	/*
 	 * The Chatbot Model instance
 	 */
 	private Chatbot keithbot;
