@@ -1,9 +1,12 @@
 package chatbot.model;
 
+import java.util.ArrayList;
+
 public class Chatbot
 {
 	private String name;
 	private int numberOfChats;
+	private ArrayList<String> memeList;
 	
 	/**
 	 * Creates a Chatbot Object with a specified name. Initializes the total chats to 0.
@@ -54,6 +57,17 @@ public class Chatbot
 		//++ is a shortcut to add 1 to a variable
 	}
 	
+	/**
+	 * processed the supplied text from the user to provide a message from the Chatbot.
+	 * @param userText The user supplied text.
+	 * @return What the Chatbot says because of the supplied input.
+	 */
+	public String processText(String userText)
+	{
+		String processedText = "";
+		
+		return processedText;
+	}
 	
 	/**
 	 * Check's to see if you want to quit

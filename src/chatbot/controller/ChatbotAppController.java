@@ -1,14 +1,27 @@
 package chatbot.controller;
 
-import javax.swing.JOptionPane;
+
 
 import chatbot.model.Chatbot;
 import chatbot.view.ChatbotView;
 
 public class ChatbotAppController
 {
+	
+	/**
+	 * The GUI view for the application.
+	 */
 	private ChatbotView appView;
-	private Chatbot keith;
+	
+	/**
+	 * The Chatbot Model instance
+	 */
+	private Chatbot keithbot;
+	
+	/**
+	 * The startup message for out chatbot application.
+	 */
+	private String startMessage;
 	
 	/**
 	 * Creates a ChatbotAppController and initializes the associated View and Model objects.
@@ -16,15 +29,17 @@ public class ChatbotAppController
 	public ChatbotAppController()
 	{
 		appView = new ChatbotView(this);
-		keith = new Chatbot("Bruce Wayne");
+		keithbot = new Chatbot("Bruce Wayne");
+		startMessage = "Welcome to the " + keithbot.getName() +" Chatbot, what is your name?";
 	}
 	
 	/**
-	 * Allows other objects accessto the keith
+	 * Allows other objects to access the keithbot.
+	 * @return The Chatbot for this app.
 	 */
-	public Chatbot getkeith()
+	public Chatbot getkeithbot()
 	{
-		return keith;
+		return keithbot;
 	}
 	
 	/**
@@ -32,31 +47,23 @@ public class ChatbotAppController
 	 */
 	public void start()
 	{
-		/**
-		 * This asks if you want to continue, if you do not then it will quit the program.
-		 */
-		String message = JOptionPane.showInputDialog(null, "Would you like to quit?");
+		String message = appView.displayChatbotConversations(startMessage);
 		
-		while(!keith.quitChecker(message))
+		while(!keithbot.quitChecker(message))
 		{
-			appView.displayChatbotConversations(message);
+			message = keithbot.processText(message);
+			message = appView.displayChatbotConversations(message);
 		}
 		
-		
-		if(keith.quitChecker(message))
-		{
 			quit();
-		}
-		
-		JOptionPane.showMessageDialog(null, "Why so serious?...");
 	}
 	
 	/**
-	 * The quitting message.
+	 * The quits the Chatbot application with a message to the user telling them that it is closing.
 	 */
 	private void quit()
 	{
-		JOptionPane.showMessageDialog(null, "So long, thanks for all the fish");
+		appView.displayInformation("goodbye my friend");
 		System.exit(0);
 	}
 }
