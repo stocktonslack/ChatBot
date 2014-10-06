@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Chatbot
 {
+	private String contentArea;
 	private String name;
 	private int numberOfChats;
 	private ArrayList<String> memeList;
-	private ArrayList<String> contentList;
 	
 	/**
 	 * Sets the name of the Chatbot and creates the array for the memeList, the contentList.
@@ -19,11 +19,10 @@ public class Chatbot
 		numberOfChats = 0;
 		
 		//this. means talk to the current class
-		
+		contentArea = "";
 		memeList = new ArrayList<String>();
 		fillTheMemeList();
 		
-		contentList = new ArrayList<String>();
 	}
 	
 	/**
@@ -89,23 +88,38 @@ public class Chatbot
 		String processedText = "";
 		incrementChats();
 		
-		if(memeChecker(userText))
-		{
-			processedText = "Guess What! You found a meme: " + userText;
-			processedText += " Isn't that sweet!";
-		}
+		int randomChoice= (int)(Math.random() * 3);
 		
-		else if(contentChecker(userText))
+		if(randomChoice == 0)
+		{
+			if(contentChecker(userText))
+			{
+				processedText = "No way! Let's talk about " + userText;
+				processedText +=" I reallly like that";
+			}
+			else
+			{
+				processedText = "We Should talk about something else";
+			}
+		}
+		else if (randomChoice == 1)
 		{
 			
 		}
-		
 		else
-		{
+		{	
+			if(memeChecker(userText))
+			{
+			processedText = "Guess What! You found a meme: " + userText;
+			processedText += " Isn't that sweet!";
+			}
+			else
+			{
 			processedText = "I'm sad, that wasn't a meme.";
-		}
+			}
 		
 		return processedText;
+		}
 	}
 	
 	/**
@@ -125,26 +139,21 @@ public class Chatbot
 			}
 		}
 		
-		for(int loopCount = 0; loopCount < memeList.size(); loopCount++)
-		{
-			if(memeList.get(loopCount).equalsIgnoreCase(currentText))
-			{
-				isAMeme = true;
-			}
-		}
-		
 		return isAMeme;
 	}
 	
-	private void fillTheContentList()
+	private boolean contentChecker(String input)
 	{
-		contentList.add("Batman");
-		contentList.add("Stud");
-		contentList.add("Stockton");
-		contentList.add("Yoyo");
-		contentList.add("Homework");
-		contentList.add("Chairman");
+		boolean isContent = false;
+		
+		if(input.contains(contentArea))
+		{
+			isContent = true;
+		}
+		
+		return isContent;
 	}
+
 	
 	/**
 	 * Check's to see if you want to quit
