@@ -4,9 +4,24 @@ import java.util.ArrayList;
 
 public class Chatbot
 {
+	/**
+	 * The content that is input from the user, for checking
+	 */
 	private String contentArea;
+	
+	/**
+	 * The name of the chatBot
+	 */
 	private String name;
+	
+	/**
+	 * Sets the number of Chats and increases it by one each time.
+	 */
 	private int numberOfChats;
+	
+	/**
+	 * This creates an ArrayList called memeList, for the memes to be put into.
+	 */
 	private ArrayList<String> memeList;
 	
 	/**
@@ -142,6 +157,11 @@ public class Chatbot
 		return isAMeme;
 	}
 	
+	/**
+	 * Check's the content from the user to see if it talks about any certain subjects
+	 * @param input If what the user put's in is in the contentArea, then it will return true.
+	 * @return returns the isContent, after it is true.
+	 */
 	private boolean contentChecker(String input)
 	{
 		boolean isContent = false;
@@ -154,6 +174,10 @@ public class Chatbot
 		return isContent;
 	}
 
+	private boolean stringChecker(String input)
+	{
+		boolean isTooLong
+	}
 	
 	/**
 	 * Check's to see if you want to quit
