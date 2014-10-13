@@ -23,12 +23,13 @@ public class Chatbot
 	 * This creates an ArrayList called memeList, for the memes to be put into.
 	 */
 	private ArrayList<String> memeList;
-	
+
 	private String stringArea;
 
 	/**
 	 * Sets the name of the Chatbot and creates the array for the memeList, the
 	 * contentList.
+	 * 
 	 * @param name
 	 *            The name of the Chatbot
 	 */
@@ -135,15 +136,15 @@ public class Chatbot
 		}
 
 		/**
-		 * if a random number is 1 then it will use the contentChecker
+		 * if a random number is 1 then it will use the memeChecker
 		 */
 		else if (randomChoice == 1)
 		{
-			if (contentChecker(userText))
-			{
-				processedText = "The secret involves" + userText;
-			}
-			else
+			// if (memeChecker(userText))
+			// {
+			// processedText = "The secret involves" + userText;
+			// }
+			// else
 			{
 				if (memeChecker(userText))
 				{
@@ -154,6 +155,17 @@ public class Chatbot
 				{
 					processedText = "I'm sad, that wasn't a meme.";
 				}
+			}
+		}
+		else if (randomChoice == 2)
+		{
+			if (contentChecker(userText))
+			{
+				processedText = "";
+			}
+			else
+			{
+				processedText = "let's talk about yoyo's!!";
 			}
 		}
 		return processedText;
@@ -202,15 +214,22 @@ public class Chatbot
 		return isContent;
 	}
 
+	/**
+	 * Checks the length of the strings
+	 * 
+	 * @param input
+	 *            The input of the user
+	 * @return returns whether or not the string that the user inputs is to long
+	 */
 	private boolean stringChecker(String input)
 	{
 		boolean isTooLong = false;
-		
+
 		if (input.contains(stringArea))
 		{
 			isTooLong = true;
 		}
-		
+
 		return isTooLong;
 	}
 
