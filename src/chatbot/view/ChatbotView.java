@@ -11,6 +11,10 @@ public class ChatbotView
 	 */
 	private ChatbotAppController baseController;
 
+	/**
+	 * creates a public baseController in the ChatbotView
+	 * @param baseController uses the this to make the basecontroller in the appController the same as the one that is created in the veiw.
+	 */
 	public ChatbotView(ChatbotAppController baseController)
 	{
 		this.baseController = baseController;
