@@ -45,6 +45,6 @@ public class ChatbotView
 	 */
 	public void displayInformation(String input)
 	{
-		JOptionPane.showMessageDialog(null, input);
+		JOptionPane.showMessageDialog(null, baseController.getkeithbot().getName());
 	}
 }

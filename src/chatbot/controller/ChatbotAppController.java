@@ -1,8 +1,16 @@
 package chatbot.controller;
 
 import chatbot.model.Chatbot;
+import chatbot.view.ChatbotFrame;
 import chatbot.view.ChatbotView;
 
+/**
+ * Application Controller for the Chatbot string project. Responsible for
+ * controlling the view and model packages.
+ * 
+ * @author ssla9721
+ *
+ */
 public class ChatbotAppController
 {
 
@@ -20,6 +28,16 @@ public class ChatbotAppController
 	 * The startup message for out chatbot application.
 	 */
 	private String startMessage;
+	
+	/**
+	 * The ending mesage when the app stops.
+	 */
+	private String endMessage;
+	
+	/**
+	 * GUI frame for the app
+	 */
+	private ChatbotFrame baseFrame;
 
 	/**
 	 * Creates a ChatbotAppController and initializes the associated View and
@@ -28,8 +46,9 @@ public class ChatbotAppController
 	public ChatbotAppController()
 	{
 		appView = new ChatbotView(this);
+		baseFrame = new ChatbotFrame(this);
 		keithbot = new Chatbot("Bruce Wayne");
-		startMessage = "Welcome to the " + keithbot.getName() + " Chatbot, what is your name?";
+		startMessage = "Welcome to your " + keithbot.getName() + " Chatbot, what is your name?";
 	}
 
 	/**
@@ -48,7 +67,7 @@ public class ChatbotAppController
 	public void start()
 	{
 		String message = appView.displayChatbotConversations(startMessage);
-
+/*
 		while (!keithbot.quitChecker(message))
 		{
 			message = keithbot.processText(message);
@@ -56,7 +75,7 @@ public class ChatbotAppController
 		}
 
 		quit();
-	}
+*/	}
 
 	/**
 	 * The quits the Chatbot application with a message to the user telling them
