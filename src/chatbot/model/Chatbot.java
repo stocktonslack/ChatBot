@@ -37,7 +37,7 @@ public class Chatbot
 	{
 		this.name = name;
 		numberOfChats = 0;
-		contentArea = "yoyo";
+		contentArea = "";
 		stringArea = "";
 		memeList = new ArrayList<String>();
 		fillTheMemeList();
@@ -53,6 +53,37 @@ public class Chatbot
 	{
 		return name;
 		// can be return this.name there is no difference
+	}
+
+	/**
+	 * Returns the number of chats for this chatbot.
+	 * 
+	 * @return the current number of chats
+	 */
+	public int getNumbeOfChats()
+	{
+		return numberOfChats;
+	}
+
+	/**
+	 * This allows anyone to change the chatbot name.
+	 * 
+	 * @param name
+	 *            the new name for the chatbot
+	 */
+	public void setName(String name)
+	{
+		this.name = name;
+		// allows anyone to change the Chatbot name if they call setName
+	}
+
+	/**
+	 * This adds one to the number of chats.
+	 */
+	public void incrementChats()
+	{
+		numberOfChats++;
+		// ++ is a shortcut to add 1 to a variable
 	}
 
 	/**
@@ -201,38 +232,7 @@ public class Chatbot
 
 		return isTooLong;
 	}
-	
-	/**
-	 * Returns the number of chats for this chatbot.
-	 * 
-	 * @return the current number of chats
-	 */
-	public int getNumbeOfChats()
-	{
-		return numberOfChats;
-	}
 
-	/**
-	 * This allows anyone to change the chatbot name.
-	 * 
-	 * @param name
-	 *            the new name for the chatbot
-	 */
-	public void setName(String name)
-	{
-		this.name = name;
-		// allows anyone to change the Chatbot name if they call setName
-	}
-
-	/**
-	 * This adds one to the number of chats.
-	 */
-	public void incrementChats()
-	{
-		numberOfChats++;
-		// ++ is a shortcut to add 1 to a variable
-	}
-	
 	/**
 	 * Check's to see if you want to quit
 	 * 
