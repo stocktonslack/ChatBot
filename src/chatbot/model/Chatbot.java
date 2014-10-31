@@ -1,6 +1,7 @@
 package chatbot.model;
 
 import java.util.ArrayList;
+import chatbot.model.user;
 
 public class Chatbot
 {
@@ -17,12 +18,14 @@ public class Chatbot
 	/**
 	 * Sets the number of Chats and increases it by one each time.
 	 */
-	private int numberOfChats;
+	private int chatCount;
 
 	/**
 	 * This creates an ArrayList called memeList, for the memes to be put into.
 	 */
 	private ArrayList<String> memeList;
+
+	private user myUser;
 
 	private String stringArea;
 
@@ -36,11 +39,12 @@ public class Chatbot
 	public Chatbot(String name)
 	{
 		this.name = name;
-		numberOfChats = 0;
+		chatCount = 0;
 		contentArea = "";
 		stringArea = "";
 		memeList = new ArrayList<String>();
 		fillTheMemeList();
+		myUser = new user(name, chatCount, false, name);
 		// this. means talk to the current class
 	}
 
@@ -62,7 +66,7 @@ public class Chatbot
 	 */
 	public int getNumbeOfChats()
 	{
-		return numberOfChats;
+		return chatCount;
 	}
 
 	/**
@@ -82,23 +86,8 @@ public class Chatbot
 	 */
 	public void incrementChats()
 	{
-		numberOfChats++;
+		chatCount++;
 		// ++ is a shortcut to add 1 to a variable
-	}
-
-	/**
-	 * Fills the contents of the memeList with internet memes.
-	 */
-	private void fillTheMemeList()
-	{
-		memeList.add("y u mad bro");
-		memeList.add("I'm always watching you... alway's watching you...");
-		memeList.add("so I guess you could say things are gettin' pretty serious");
-		memeList.add("Why so serious?");
-		memeList.add("one does not simply");
-		memeList.add("Mormon Memes");
-		memeList.add("You Shall Not PASS)");
-
 	}
 
 	/**
@@ -114,61 +103,84 @@ public class Chatbot
 		String processedText = "";
 		incrementChats();
 
-		int randomChoice = (int) (Math.random() * 3);
+		int randomChoice = (int) (Math.random() * 4);
 		if (userText != null)
 		{
-
-		}
-
-		/**
-		 * if a random number is 0 then it will use the string checker
-		 */
-		if (randomChoice == 0)
-		{
-			if (stringChecker(userText))
+			if (chatCount < 10)
 			{
-				processedText = "that was to long, sorry!";
-			}
-			else
-			{
-				processedText = "Short is goodish";
-			}
-		}
+				processedText = "So what's your name?";
 
-		/**
-		 * if a random number is 1 then it will use the memeChecker
-		 */
-		else if (randomChoice == 1)
-		{
-			// if (memeChecker(userText))
-			// {
-			// processedText = "The secret involves" + userText;
-			// }
-			// else
-			{
-				if (memeChecker(userText))
+				if (randomChoice == 0)
 				{
-					processedText = "Guess What! You found a meme: " + userText;
-					processedText += " Isn't that sweet!";
+					if (stringChecker(userText))
+					{
+						processedText = "that was to long, sorry!";
+					}
+					else
+					{
+						processedText = "Short is goodish";
+					}
 				}
-				else
+
+				/**
+				 * if a random number is 1 then it will use the memeChecker
+				 */
+				else if (randomChoice == 1)
 				{
-					processedText = "I'm sad, that wasn't a meme.";
+					if (memeChecker(userText))
+					{
+						processedText = "The secret involves" + userText;
+					}
+					else
+					{
+						if (memeChecker(userText))
+						{
+							processedText = "Guess What! You found a meme: " + userText;
+							processedText += " Isn't that sweet!";
+						}
+						else
+						{
+							processedText = "I'm sad, that wasn't a meme.";
+						}
+					}
 				}
-			}
-		}
-		else if (randomChoice == 2)
-		{
-			if (contentChecker(userText))
-			{
-				processedText = "";
-			}
-			else
-			{
-				processedText = "let's talk about yoyo's!!";
+				else if (randomChoice == 2)
+				{
+					if (contentChecker(userText))
+					{
+						processedText = "";
+					}
+					else
+					{
+						processedText = "let's talk about yoyo's!!";
+					}
+				}
+
+				else if (randomChoice == 3)
+				{
+					if (chatCount < 10)
+					{
+						processedText = "";
+					}
+				}
 			}
 		}
 		return processedText;
+	}
+
+	/**
+	 * Fills the contents of the memeList with Internet memes.
+	 */
+	private void fillTheMemeList()
+	{
+		memeList.add("y u mad bro");
+		memeList.add("I'm always watching you... alway's watching you...");
+		memeList.add("so I guess you could say things are gettin' pretty serious");
+		memeList.add("Why so serious?");
+		memeList.add("one does not simply");
+		memeList.add("Mormon Memes");
+		memeList.add("You Shall Not PASS)");
+
 	}
 
 	/**
