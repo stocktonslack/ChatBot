@@ -2,6 +2,7 @@ package chatbot.controller;
 
 import chatbot.model.Chatbot;
 import chatbot.view.ChatbotFrame;
+import chatbot.view.ChatbotPanel;
 import chatbot.view.ChatbotView;
 
 /**
@@ -9,7 +10,7 @@ import chatbot.view.ChatbotView;
  * controlling the view and model packages.
  * 
  * @author ssla9721
- *
+ *@version 1.4 11/4/14 - changed the GUI reference added a few things to help controll the flow of it.
  */
 public class ChatbotAppController
 {
@@ -62,23 +63,33 @@ public class ChatbotAppController
 	}
 
 	/**
-	 * Starts the Chatbot Application.
+	 * Starts the Chatbot App.
 	 */
 	public void start()
 	{
-		String message = appView.displayChatbotConversations(startMessage);
-/*
-		while (!keithbot.quitChecker(message))
-		{
-			message = keithbot.processText(message);
-			message = appView.displayChatbotConversations(message);
-		}
+		//String message = appView.displayChatbotConversations(startMessage);
+		
+		ChatbotPanel myAppPanel = (ChatbotPanel) baseFrame.getContentPane();
+		myAppPanel.displayTextToUser(startMessage);
+		
+		//((ChatbotPanel) baseFrame.getContentPane()).displayTextToUser(startMessage);
+		
+		String message = keithbot.processText(startMessage);
+		message = appView.displayChatbotConversations(message);
+		
+	}
 
-		quit();
-*/	}
-
+	public String sendTextToChatbot(String userInput)
+	{
+		String respondText = "";
+		
+		respondText = keithbot.processText(userInput);
+		
+		return respondText;
+	}
+	
 	/**
-	 * The quits the Chatbot application with a message to the user telling them
+	 * quits the Chatbot application with a message to the user telling them
 	 * that it is closing.
 	 */
 	private void quit()

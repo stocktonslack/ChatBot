@@ -7,7 +7,6 @@ import chatbot.controller.ChatbotAppController;
 /**
  * The chatbotFrame takes some of it's characteristics from the JFrame.
  * @author ssla9721
- *
  */
 public class ChatbotFrame extends JFrame
 {
