@@ -108,7 +108,8 @@ public class Chatbot
 		{
 			if (chatCount < 10)
 			{
-				processedText = "So what's your name?";
+				if()
+					
 
 				if (randomChoice == 0)
 				{
@@ -265,4 +266,3 @@ public class Chatbot
 	}
 }
 
-//this is a test

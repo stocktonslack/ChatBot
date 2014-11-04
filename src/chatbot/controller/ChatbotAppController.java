@@ -73,10 +73,6 @@ public class ChatbotAppController
 		myAppPanel.displayTextToUser(startMessage);
 		
 		//((ChatbotPanel) baseFrame.getContentPane()).displayTextToUser(startMessage);
-		
-		String message = keithbot.processText(startMessage);
-		message = appView.displayChatbotConversations(message);
-		
 	}
 
 	public String sendTextToChatbot(String userInput)
