@@ -108,8 +108,15 @@ public class Chatbot
 		{
 			if (chatCount < 10)
 			{
-				if()
+				if(chatCount == 1)
+				{
+					processedText = "Welcome to the Bruce Wayne Chatbot, what is your name?";
+				}
 					
+				else if (chatCount == 3)
+				{
+				
+				}
 
 				if (randomChoice == 0)
 				{
