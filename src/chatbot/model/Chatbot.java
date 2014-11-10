@@ -24,6 +24,8 @@ public class Chatbot
 	 * This creates an ArrayList called memeList, for the memes to be put into.
 	 */
 	private ArrayList<String> memeList;
+	
+	private ArrayList<String> userInputList;
 
 	private user myUser;
 
@@ -45,6 +47,8 @@ public class Chatbot
 		memeList = new ArrayList<String>();
 		fillTheMemeList();
 		myUser = new user(name, chatCount, false, name);
+		userInputList = new ArrayList<String>();
+		
 		// this. means talk to the current class
 	}
 
@@ -89,6 +93,7 @@ public class Chatbot
 		chatCount++;
 		// ++ is a shortcut to add 1 to a variable
 	}
+	
 
 	/**
 	 * processed the supplied text from the user to provide a message from the
@@ -103,7 +108,7 @@ public class Chatbot
 		String processedText = "";
 		incrementChats();
 
-		int randomChoice = (int) (Math.random() * 4);
+		int randomChoice = (int) (Math.random() * 6);
 		if (userText != null)
 		{
 			if (chatCount < 10)
@@ -166,14 +171,60 @@ public class Chatbot
 
 				else if (randomChoice == 3)
 				{
-					if (chatCount < 10)
+					if (chatCount < 5)
+					{
+						if(chatCount == 0)
+						{
+							
+						}
+						if (chatCount == 1)
+						{
+							
+						}
+					}
+				}
+				
+				else if (randomChoice == 4)
+				{
+					//userInputList add
+					userInputList.add(0, userText);
+				}
+				
+				else if (randomChoice == 5)
+				{
+					if (UserInputChecker(userText))
+					{
+						processedText = "";
+					}
+					else
 					{
 						processedText = "";
 					}
 				}
 			}
 		}
+		incrementChats();
 		return processedText;
+	}
+	
+	private boolean UserInputChecker(String input)
+	{
+		boolean matchesInput = false;
+		
+		if(userInputList.size() > 0)
+		{
+			for (int loopCount = 0; loopCount < userInputList.size(); loopCount++)
+			{
+				if(input.equalsIgnoreCase(userInputList.get(loopCount)))
+				{
+					matchesInput = true;
+					userInputList.remove(loopCount);
+					loopCount--;
+				}
+			}
+		}
+		
+		return matchesInput;
 	}
 
 	/**
