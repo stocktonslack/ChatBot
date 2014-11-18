@@ -108,8 +108,11 @@ public class Chatbot
 		String processedText = "";
 		incrementChats();
 
-		int randomChoice = (int) (Math.random() * 6);
-		if (userText != null)
+		//int randomChoice = (int) (Math.random() * 6);
+		//if (userText != null)
+		int randomChoice = 7;
+		String processedText;
+		switch()
 		{
 			if (chatCount < 10)
 			{
