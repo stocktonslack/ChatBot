@@ -25,8 +25,14 @@ public class Chatbot
 	 */
 	private ArrayList<String> memeList;
 	
+	/**
+	 * Takes what the user say's and stores it
+	 */
 	private ArrayList<String> userInputList;
 
+	/**
+	 * The real life person outside the Chatbot
+	 */
 	private user myUser;
 
 	private String stringArea;
@@ -121,9 +127,9 @@ public class Chatbot
 					processedText = "Welcome to the Bruce Wayne Chatbot, what is your name?";
 				}
 					
-				else if (chatCount == 3)
+				else if (chatCount == 2)
 				{
-				
+					processedText = ""
 				}
 
 				if (randomChoice == 0)
@@ -210,6 +216,11 @@ public class Chatbot
 		return processedText;
 	}
 	
+	/**
+	 * Tests user input for a String match
+	 * @param input The String input from the user
+	 * @return will notify that it matches the input
+	 */
 	private boolean UserInputChecker(String input)
 	{
 		boolean matchesInput = false;
@@ -247,9 +258,7 @@ public class Chatbot
 
 	/**
 	 * Checks to see if it is a meme
-	 * 
-	 * @param currentText
-	 *            Checks the users input text
+	 * @param currentText Checks the users input text
 	 * @return returns true or false if the meme is in the list or not.
 	 */
 	private boolean memeChecker(String currentText)
@@ -268,13 +277,9 @@ public class Chatbot
 	}
 
 	/**
-	 * Check's the content from the user to see if it talks about any certain
-	 * subjects
-	 * 
-	 * @param input
-	 *            If what the user put's in is in the contentArea, then it will
-	 *            return true.
-	 * @return returns the isContent, after it is true.
+	 * Check's the input from the user to see if it talks about a certain subject
+	 * @param input If what the user put's in is in the contentArea, then it will return true.
+	 * @return if it talks about the content, then it will trigger the Content prompt
 	 */
 	private boolean contentChecker(String input)
 	{
@@ -289,10 +294,8 @@ public class Chatbot
 	}
 
 	/**
-	 * Checks the length of the strings
-	 * 
-	 * @param input
-	 *            The input of the user
+	 * Checks the length of the string
+	 * @param input The input of the user
 	 * @return returns whether or not the string that the user inputs is to long
 	 */
 	private boolean stringChecker(String input)
