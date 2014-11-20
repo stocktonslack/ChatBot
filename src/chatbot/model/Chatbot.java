@@ -112,13 +112,23 @@ public class Chatbot
 	public String processText(String userText)
 	{
 		String processedText = "";
+		
+		if (userText != null && userText.length( > 0))
+		{
+			if(chatCount <5)
+				processedText = "";
+		}
+		
+		else
+		{
+			numberOfChats--;
+			processedText = "answer the dang question...";
+		}
 		incrementChats();
 
 		//int randomChoice = (int) (Math.random() * 6);
 		//if (userText != null)
-		int randomChoice = 7;
-		String processedText;
-		switch()
+		return processedText;
 		{
 			if (chatCount < 10)
 			{
@@ -129,7 +139,7 @@ public class Chatbot
 					
 				else if (chatCount == 2)
 				{
-					processedText = ""
+					processedText = "";
 				}
 
 				if (randomChoice == 0)
@@ -203,14 +213,19 @@ public class Chatbot
 				{
 					if (UserInputChecker(userText))
 					{
-						processedText = "";
+						randomTopic = chatbotNameConversation(userText);
 					}
 					else
 					{
-						processedText = "";
+						randomTopic = noNameConversation(userText);
 					}
 				}
+				else
+				{
+					randomTopic
+				}
 			}
+			
 		}
 		incrementChats();
 		return processedText;
@@ -328,5 +343,47 @@ public class Chatbot
 
 		return okToQuit;
 	}
+	
+	
+	/**
+	 * Checks to see if the name of the Chatbot is contrained within the String supplied by the user.
+	 * @param currentInput The user supplied String.
+	 * @return Whether the name is inside or not.
+	 */
+	private boolean chatbotNameChecker(String currentInput)
+	{
+		boolean hasNameInString = false;
+		
+		if(currentInput.indexOf(this.getName()) > -1)
+		{
+			hasNameInString = true;
+		}
+		
+		return hasNameInString;
+	}
+	
+	private String chatbotNameConversation(String currentInput)
+	{
+		String nameConversation = "This is what you typed after my name: ";
+		
+		nameConversation += currentInput.substring(currentInput.indexOf(this.getName()) + this.getName().length(), currentInput.length()-1);
+		
+		return nameConversation;
+	}
+	
+	private String noNameConversation (String currentInput)
+	{
+		String notNamed = "";
+		
+		int smallRandom = (int) (Math.random() * currentInput.length() / 2);
+		int largerRandom = (int) ((Math.random() * smallRandom) + (Math.random() * (currentInput.length() / 2) + 1));
+		
+		notNamed = "You didn't say my name so here is a specia phrase: " + currentInput.substring(smallRandom, largerRandom);
+		return notNamed;
+	}
+	
+	
+	
+	
 }
 
