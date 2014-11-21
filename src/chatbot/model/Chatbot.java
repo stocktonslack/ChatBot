@@ -105,8 +105,7 @@ public class Chatbot
 	 * processed the supplied text from the user to provide a message from the
 	 * Chatbot.
 	 * 
-	 * @param userText
-	 *            The user supplied text.
+	 * @param userText The user supplied text.
 	 * @return What the Chatbot says because of the supplied input.
 	 */
 	public String processText(String userText)
