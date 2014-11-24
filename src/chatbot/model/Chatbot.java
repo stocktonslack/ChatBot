@@ -49,11 +49,11 @@ public class Chatbot
 		this.name = name;
 		chatCount = 0;
 		contentArea = "";
-		stringArea = "";
+		userInputList = new ArrayList<String>();
 		memeList = new ArrayList<String>();
 		fillTheMemeList();
 		myUser = new user(name, chatCount, false, name);
-		userInputList = new ArrayList<String>();
+		
 		
 		// this. means talk to the current class
 	}
@@ -120,7 +120,7 @@ public class Chatbot
 		
 		else
 		{
-			numberOfChats--;
+			chatCount--;
 			processedText = "answer the dang question...";
 		}
 		incrementChats();
