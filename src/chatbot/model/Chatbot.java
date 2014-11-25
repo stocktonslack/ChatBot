@@ -16,7 +16,7 @@ public class Chatbot
 	private String name;
 
 	/**
-	 * Sets the number of Chats and increases it by one each time.
+	 * Sets the number of Chats that the chatbot has participated in.
 	 */
 	private int chatCount;
 
@@ -24,7 +24,7 @@ public class Chatbot
 	 * This creates an ArrayList called memeList, for the memes to be put into.
 	 */
 	private ArrayList<String> memeList;
-	
+
 	/**
 	 * Takes what the user say's and stores it
 	 */
@@ -53,8 +53,7 @@ public class Chatbot
 		memeList = new ArrayList<String>();
 		fillTheMemeList();
 		myUser = new user(name, chatCount, false, name);
-		
-		
+
 		// this. means talk to the current class
 	}
 
@@ -66,7 +65,7 @@ public class Chatbot
 	public String getName()
 	{
 		return name;
-		// can be return this.name there is no difference
+		// can be return this.name there is no differencef
 	}
 
 	/**
@@ -92,158 +91,194 @@ public class Chatbot
 	}
 
 	/**
-	 * This adds one to the number of chats.
+	 * This adds one to the number of chats that the chatbot has participated
+	 * in, tracking the activity of the chatbot.
 	 */
 	public void incrementChats()
 	{
 		chatCount++;
 		// ++ is a shortcut to add 1 to a variable
 	}
-	
+
+	/**
+	 * condensing the processedText method, so that we can save space and have cleaner code.
+	 * @param userText the input from the user.
+	 * @return What the Chatbot says based on the input of the user.
+	 */
+	public String processedText(String userText)
+	{
+		String processedText = "";
+
+		if (userText != 0 && userText.length > 0)
+		{
+			if (chatCount < 5)
+			{
+				processedText = userInfo(userText);
+			}
+			
+			else
+			{
+				processedText = randomTopic(userText);
+			}
+		}
+		
+		else
+		{
+			chatCount --;
+			processedText = "Please Talk to me!";
+		}
+		
+		incrementChats();
+		return processedText;
+
+	}
 
 	/**
 	 * processed the supplied text from the user to provide a message from the
 	 * Chatbot.
 	 * 
-	 * @param userText The user supplied text.
+	 * @param userText
+	 *            The user supplied text.
 	 * @return What the Chatbot says because of the supplied input.
 	 */
-	public String processText(String userText)
-	{
-		String processedText = "";
-		
-		if (userText != null && userText.length( > 0))
-		{
-			if(chatCount <5)
-				processedText = "";
-		}
-		
-		else
-		{
-			chatCount--;
-			processedText = "answer the dang question...";
-		}
-		incrementChats();
+	// public String processText(String userText)
+	// {
+	// String processedText = "";
+	//
+	// if (userText != null && userText.length( > 0))
+	// {
+	// if(chatCount <5)
+	// processedText = "";
+	// }
+	//
+	// else
+	// {
+	// chatCount--;
+	// processedText = "answer the dang question...";
+	// }
+	// incrementChats();
+	//
+	// //int randomChoice = (int) (Math.random() * 6);
+	// //if (userText != null)
+	// return processedText;
+	// {
+	// if (chatCount < 10)
+	// {
+	// if(chatCount == 1)
+	// {
+	// processedText = "Welcome to the Bruce Wayne Chatbot, what is your name?";
+	// }
+	//
+	// else if (chatCount == 2)
+	// {
+	// processedText = "";
+	// }
+	//
+	// if (randomChoice == 0)
+	// {
+	// if (stringChecker(userText))
+	// {
+	// processedText = "that was to long, sorry!";
+	// }
+	// else
+	// {
+	// processedText = "Short is goodish";
+	// }
+	// }
+	//
+	// /**
+	// * if a random number is 1 then it will use the memeChecker
+	// */
+	// else if (randomChoice == 1)
+	// {
+	// if (memeChecker(userText))
+	// {
+	// processedText = "The secret involves" + userText;
+	// }
+	// else
+	// {
+	// if (memeChecker(userText))
+	// {
+	// processedText = "Guess What! You found a meme: " + userText;
+	// processedText += " Isn't that sweet!";
+	// }
+	// else
+	// {
+	// processedText = "I'm sad, that wasn't a meme.";
+	// }
+	// }
+	// }
+	// else if (randomChoice == 2)
+	// {
+	// if (contentChecker(userText))
+	// {
+	// processedText = "";
+	// }
+	// else
+	// {
+	// processedText = "let's talk about yoyo's!!";
+	// }
+	// }
+	//
+	// else if (randomChoice == 3)
+	// {
+	// if (chatCount < 5)
+	// {
+	// if(chatCount == 0)
+	// {
+	//
+	// }
+	// if (chatCount == 1)
+	// {
+	//
+	// }
+	// }
+	// }
+	//
+	// else if (randomChoice == 4)
+	// {
+	// //userInputList add
+	// userInputList.add(0, userText);
+	// }
+	//
+	// else if (randomChoice == 5)
+	// {
+	// if (UserInputChecker(userText))
+	// {
+	// randomTopic = chatbotNameConversation(userText);
+	// }
+	// else
+	// {
+	// randomTopic = noNameConversation(userText);
+	// }
+	// }
+	// else
+	// {
+	// randomTopic
+	// }
+	// }
+	//
+	// }
+	// incrementChats();
+	// return processedText;
+	// }
 
-		//int randomChoice = (int) (Math.random() * 6);
-		//if (userText != null)
-		return processedText;
-		{
-			if (chatCount < 10)
-			{
-				if(chatCount == 1)
-				{
-					processedText = "Welcome to the Bruce Wayne Chatbot, what is your name?";
-				}
-					
-				else if (chatCount == 2)
-				{
-					processedText = "";
-				}
-
-				if (randomChoice == 0)
-				{
-					if (stringChecker(userText))
-					{
-						processedText = "that was to long, sorry!";
-					}
-					else
-					{
-						processedText = "Short is goodish";
-					}
-				}
-
-				/**
-				 * if a random number is 1 then it will use the memeChecker
-				 */
-				else if (randomChoice == 1)
-				{
-					if (memeChecker(userText))
-					{
-						processedText = "The secret involves" + userText;
-					}
-					else
-					{
-						if (memeChecker(userText))
-						{
-							processedText = "Guess What! You found a meme: " + userText;
-							processedText += " Isn't that sweet!";
-						}
-						else
-						{
-							processedText = "I'm sad, that wasn't a meme.";
-						}
-					}
-				}
-				else if (randomChoice == 2)
-				{
-					if (contentChecker(userText))
-					{
-						processedText = "";
-					}
-					else
-					{
-						processedText = "let's talk about yoyo's!!";
-					}
-				}
-
-				else if (randomChoice == 3)
-				{
-					if (chatCount < 5)
-					{
-						if(chatCount == 0)
-						{
-							
-						}
-						if (chatCount == 1)
-						{
-							
-						}
-					}
-				}
-				
-				else if (randomChoice == 4)
-				{
-					//userInputList add
-					userInputList.add(0, userText);
-				}
-				
-				else if (randomChoice == 5)
-				{
-					if (UserInputChecker(userText))
-					{
-						randomTopic = chatbotNameConversation(userText);
-					}
-					else
-					{
-						randomTopic = noNameConversation(userText);
-					}
-				}
-				else
-				{
-					randomTopic
-				}
-			}
-			
-		}
-		incrementChats();
-		return processedText;
-	}
-	
 	/**
 	 * Tests user input for a String match
-	 * @param input The String input from the user
+	 * 
+	 * @param input
+	 *            The String input from the user
 	 * @return will notify that it matches the input
 	 */
 	private boolean UserInputChecker(String input)
 	{
 		boolean matchesInput = false;
-		
-		if(userInputList.size() > 0)
+
+		if (userInputList.size() > 0)
 		{
 			for (int loopCount = 0; loopCount < userInputList.size(); loopCount++)
 			{
-				if(input.equalsIgnoreCase(userInputList.get(loopCount)))
+				if (input.equalsIgnoreCase(userInputList.get(loopCount)))
 				{
 					matchesInput = true;
 					userInputList.remove(loopCount);
@@ -251,7 +286,7 @@ public class Chatbot
 				}
 			}
 		}
-		
+
 		return matchesInput;
 	}
 
@@ -272,7 +307,9 @@ public class Chatbot
 
 	/**
 	 * Checks to see if it is a meme
-	 * @param currentText Checks the users input text
+	 * 
+	 * @param currentText
+	 *            Checks the users input text
 	 * @return returns true or false if the meme is in the list or not.
 	 */
 	private boolean memeChecker(String currentText)
@@ -291,9 +328,14 @@ public class Chatbot
 	}
 
 	/**
-	 * Check's the input from the user to see if it talks about a certain subject
-	 * @param input If what the user put's in is in the contentArea, then it will return true.
-	 * @return if it talks about the content, then it will trigger the Content prompt
+	 * Check's the input from the user to see if it talks about a certain
+	 * subject
+	 * 
+	 * @param input
+	 *            If what the user put's in is in the contentArea, then it will
+	 *            return true.
+	 * @return if it talks about the content, then it will trigger the Content
+	 *         prompt
 	 */
 	private boolean contentChecker(String input)
 	{
@@ -309,7 +351,9 @@ public class Chatbot
 
 	/**
 	 * Checks the length of the string
-	 * @param input The input of the user
+	 * 
+	 * @param input
+	 *            The input of the user
 	 * @return returns whether or not the string that the user inputs is to long
 	 */
 	private boolean stringChecker(String input)
@@ -342,47 +386,45 @@ public class Chatbot
 
 		return okToQuit;
 	}
-	
-	
+
 	/**
-	 * Checks to see if the name of the Chatbot is contrained within the String supplied by the user.
-	 * @param currentInput The user supplied String.
+	 * Checks to see if the name of the Chatbot is contrained within the String
+	 * supplied by the user.
+	 * 
+	 * @param currentInput
+	 *            The user supplied String.
 	 * @return Whether the name is inside or not.
 	 */
 	private boolean chatbotNameChecker(String currentInput)
 	{
 		boolean hasNameInString = false;
-		
-		if(currentInput.indexOf(this.getName()) > -1)
+
+		if (currentInput.indexOf(this.getName()) > -1)
 		{
 			hasNameInString = true;
 		}
-		
+
 		return hasNameInString;
 	}
-	
+
 	private String chatbotNameConversation(String currentInput)
 	{
 		String nameConversation = "This is what you typed after my name: ";
-		
-		nameConversation += currentInput.substring(currentInput.indexOf(this.getName()) + this.getName().length(), currentInput.length()-1);
-		
+
+		nameConversation += currentInput.substring(currentInput.indexOf(this.getName()) + this.getName().length(), currentInput.length() - 1);
+
 		return nameConversation;
 	}
-	
-	private String noNameConversation (String currentInput)
+
+	private String noNameConversation(String currentInput)
 	{
 		String notNamed = "";
-		
+
 		int smallRandom = (int) (Math.random() * currentInput.length() / 2);
 		int largerRandom = (int) ((Math.random() * smallRandom) + (Math.random() * (currentInput.length() / 2) + 1));
-		
+
 		notNamed = "You didn't say my name so here is a specia phrase: " + currentInput.substring(smallRandom, largerRandom);
 		return notNamed;
 	}
-	
-	
-	
-	
-}
 
+}
