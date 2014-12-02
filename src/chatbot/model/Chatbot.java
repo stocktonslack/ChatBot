@@ -141,128 +141,152 @@ public class Chatbot
 	 *            The user supplied text.
 	 * @return What the Chatbot says because of the supplied input.
 	 */
-	// public String processText(String userText)
-	// {
-	// String processedText = "";
-	//
-	// if (userText != null && userText.length( > 0))
-	// {
-	// if(chatCount <5)
-	// processedText = "";
-	// }
-	//
-	// else
-	// {
-	// chatCount--;
-	// processedText = "answer the dang question...";
-	// }
-	// incrementChats();
-	//
-	// //int randomChoice = (int) (Math.random() * 6);
-	// //if (userText != null)
-	// return processedText;
-	// {
-	// if (chatCount < 10)
-	// {
-	// if(chatCount == 1)
-	// {
-	// processedText = "Welcome to the Bruce Wayne Chatbot, what is your name?";
-	// }
-	//
-	// else if (chatCount == 2)
-	// {
-	// processedText = "";
-	// }
-	//
-	// if (randomChoice == 0)
-	// {
-	// if (stringChecker(userText))
-	// {
-	// processedText = "that was to long, sorry!";
-	// }
-	// else
-	// {
-	// processedText = "Short is goodish";
-	// }
-	// }
-	//
-	// /**
-	// * if a random number is 1 then it will use the memeChecker
-	// */
-	// else if (randomChoice == 1)
-	// {
-	// if (memeChecker(userText))
-	// {
-	// processedText = "The secret involves" + userText;
-	// }
-	// else
-	// {
-	// if (memeChecker(userText))
-	// {
-	// processedText = "Guess What! You found a meme: " + userText;
-	// processedText += " Isn't that sweet!";
-	// }
-	// else
-	// {
-	// processedText = "I'm sad, that wasn't a meme.";
-	// }
-	// }
-	// }
-	// else if (randomChoice == 2)
-	// {
-	// if (contentChecker(userText))
-	// {
-	// processedText = "";
-	// }
-	// else
-	// {
-	// processedText = "let's talk about yoyo's!!";
-	// }
-	// }
-	//
-	// else if (randomChoice == 3)
-	// {
-	// if (chatCount < 5)
-	// {
-	// if(chatCount == 0)
-	// {
-	//
-	// }
-	// if (chatCount == 1)
-	// {
-	//
-	// }
-	// }
-	// }
-	//
-	// else if (randomChoice == 4)
-	// {
-	// //userInputList add
-	// userInputList.add(0, userText);
-	// }
-	//
-	// else if (randomChoice == 5)
-	// {
-	// if (UserInputChecker(userText))
-	// {
-	// randomTopic = chatbotNameConversation(userText);
-	// }
-	// else
-	// {
-	// randomTopic = noNameConversation(userText);
-	// }
-	// }
-	// else
-	// {
-	// randomTopic
-	// }
-	// }
-	//
-	// }
-	// incrementChats();
-	// return processedText;
-	// }
-
+	
+	/*
+	public String processText(String userText)
+	 {
+	 String processedText = "";
+	
+	 if (userText != null && userText.length( > 0))
+	 {
+	 if(chatCount <5)
+	 processedText = "";
+	 }
+	
+	 else
+	 {
+	 chatCount--;
+	 processedText = "answer the dang question...";
+	 }
+	 incrementChats();
+	
+	 //int randomChoice = (int) (Math.random() * 6);
+	 //if (userText != null)
+	 return processedText;
+	 {
+	 if (chatCount < 10)
+	 {
+	 if(chatCount == 1)
+	 {
+	 processedText = "Welcome to the Bruce Wayne Chatbot, what is your name?";
+	 }
+	
+	 else if (chatCount == 2)
+	 {
+	 processedText = "";
+	 }
+	
+	 if (randomChoice == 0)
+	 {
+	 if (stringChecker(userText))
+	 {
+	 processedText = "that was to long, sorry!";
+	 }
+	 else
+	 {
+	 processedText = "Short is goodish";
+	 }
+	 }
+	
+	 /**
+	 * if a random number is 1 then it will use the memeChecker
+	 */
+	 
+	/*
+	else if (randomChoice == 1)
+	 {
+	 if (memeChecker(userText))
+	 {
+	 processedText = "The secret involves" + userText;
+	 }
+	 else
+	 {
+	 if (memeChecker(userText))
+	 {
+	 processedText = "Guess What! You found a meme: " + userText;
+	 processedText += " Isn't that sweet!";
+	 }
+	 else
+	 {
+	 processedText = "I'm sad, that wasn't a meme.";
+	 }
+	 }
+	 }
+	 else if (randomChoice == 2)
+	 {
+	 if (contentChecker(userText))
+	 {
+	 processedText = "";
+	 }
+	 else
+	 {
+	 processedText = "let's talk about yoyo's!!";
+	 }
+	 }
+	
+	 else if (randomChoice == 3)
+	 {
+	 if (chatCount < 5)
+	 {
+	 if(chatCount == 0)
+	 {
+	
+	 }
+	 if (chatCount == 1)
+	 {
+	
+	 }
+	 }
+	 }
+	
+	 else if (randomChoice == 4)
+	 {
+	 //userInputList add
+	 userInputList.add(0, userText);
+	 }
+	
+	 else if (randomChoice == 5)
+	 {
+	 if (UserInputChecker(userText))
+	 {
+	 randomTopic = chatbotNameConversation(userText);
+	 }
+	 else
+	 {
+	 randomTopic = noNameConversation(userText);
+	 }
+	 }
+	 else
+	 {
+	 randomTopic
+	 }
+	 }
+	
+	 }
+	 incrementChats();
+	 return processedText;
+	 }
+*/
+	
+	private String userInfo(String input)
+	{
+		String userInfoText = "";
+		
+		if (chatCount == 0)
+		{
+			
+		}
+		return userInfoText;
+	}
+	
+	private String randomTopic (String input)
+	{
+		String randomTopic = "";
+		
+		
+		return randomTopic;
+	}
+	
 	/**
 	 * Tests user input for a String match
 	 * 
@@ -423,7 +447,7 @@ public class Chatbot
 		int smallRandom = (int) (Math.random() * currentInput.length() / 2);
 		int largerRandom = (int) ((Math.random() * smallRandom) + (Math.random() * (currentInput.length() / 2) + 1));
 
-		notNamed = "You didn't say my name so here is a specia phrase: " + currentInput.substring(smallRandom, largerRandom);
+		notNamed = "You didn't say my name so here is a special phrase: " + currentInput.substring(smallRandom, largerRandom);
 		return notNamed;
 	}
 
