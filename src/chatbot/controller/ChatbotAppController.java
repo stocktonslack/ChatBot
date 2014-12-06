@@ -66,20 +66,15 @@ public class ChatbotAppController
 	 * Starts the Chatbot App.
 	 */
 	public void start()
-	{
-		//String message = appView.displayChatbotConversations(startMessage);
-		
-		ChatbotPanel myAppPanel = (ChatbotPanel) baseFrame.getContentPane();
-		myAppPanel.displayTextToUser(startMessage);
-		
-		//((ChatbotPanel) baseFrame.getContentPane()).displayTextToUser(startMessage);
+	{	
+		((ChatbotPanel) baseFrame.getContentPane()).displayTextToUser(startMessage);	
 	}
 
 	public String sendTextToChatbot(String userInput)
 	{
 		String respondText = "";
 		
-		respondText = keithbot.processText(userInput);
+		respondText = keithbot.processedText(userInput);
 		
 		return respondText;
 	}

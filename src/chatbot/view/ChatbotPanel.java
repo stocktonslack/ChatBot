@@ -1,6 +1,8 @@
 package chatbot.view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,21 +13,38 @@ import java.awt.Font;
 
 /**
  * GUI Panel for our Chatbot
+ * 
  * @author ssla9721
- * @version 1.2 Added method calls to listener for Chatbot. Method for sending info to the panel from the controller.
+ * @version 1.2 Added method calls to listener for Chatbot. Method for sending
+ *          info to the panel from the controller.
  */
 public class ChatbotPanel extends JPanel
 {
+	/**
+	 * The controller for the app and GUI
+	 */
 	private ChatbotAppController baseController;
+
+	/**
+	 * The button for the user to click
+	 */
 	private JButton sampleButton;
-	private JTextField sampleField;
-	private JTextField sampleField_1;
+
+	/**
+	 * The TextField where the user types.
+	 */
+	private JTextField userTypedText;
+
+	/**
+	 * This is where all of the text is displayed from the user, along with the
+	 * chatbots response.
+	 */
 	private JTextArea chatArea;
-	private JScrollPane chatPane;
 	private SpringLayout baseLayout;
 
 	/**
 	 * The GUI for the user to view, what they see, on a panel.
+	 * 
 	 * @param baseController
 	 */
 	public ChatbotPanel(ChatbotAppController baseController)
@@ -33,9 +52,7 @@ public class ChatbotPanel extends JPanel
 		this.baseController = baseController;
 
 		sampleButton = new JButton("click on me");
-		sampleField_1 = new JTextField(25);
-		chatPane = new JScrollPane();
-
+		userTypedText = new JTextField(25);
 		baseLayout = new SpringLayout();
 
 		setupScrollPane();
@@ -44,35 +61,39 @@ public class ChatbotPanel extends JPanel
 		setupListeners();
 
 	}
-
+	
 	/**
 	 * Allows the user to scroll between several options.
 	 */
 	private void setupScrollPane()
 	{
-
+		chatArea.setLineWrap(true);
+		chatArea.setWrapStyleWord(true);
+		chatArea.setEditable(false);
 	}
 
-	
 	private void setupPanel()
 	{
-		this.setBackground(Color.ORANGE);
-
+		this.setBackground(new Color(102, 204, 102));
 		this.setLayout(baseLayout);
-
 		this.add(sampleButton);
-		this.add(sampleField_1);
-		this.add(chatPane);
-		sampleField = new JTextField(25);
-		chatArea = new JTextArea(5, 25);
-		chatArea.setWrapStyleWord(true);
-		chatArea.setFont(new Font("Franklin Gothic Medium", Font.BOLD, 14));
-		
-		chatArea.setEnabled(false);
-		chatArea.setLineWrap(true);
-
+		this.add(userTypedText);
+		this.setSize(450,350);
+		chatArea = new JTextArea(10, 25);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 22, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 0, SpringLayout.WEST, sampleButton);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -40, SpringLayout.NORTH, userTypedText);
+		baseLayout.putConstraint(SpringLayout.EAST, chatArea, 0, SpringLayout.EAST, userTypedText);
 		add(chatArea);
-
+		
+		JScrollPane scrollPane = new JScrollPane(chatArea);
+		add(scrollPane);
+		
+		
+		
+		setPreferredSize(new Dimension(450, 350));
+		
+		add(scrollPane, BorderLayout.CENTER);
 	}
 
 	/**
@@ -80,16 +101,10 @@ public class ChatbotPanel extends JPanel
 	 */
 	private void setupLayout()
 	{
-		baseLayout.putConstraint(SpringLayout.NORTH, sampleField, 1, SpringLayout.NORTH, sampleButton);
-		baseLayout.putConstraint(SpringLayout.WEST, sampleField, 31, SpringLayout.EAST, sampleButton);
-		baseLayout.putConstraint(SpringLayout.NORTH, sampleField_1, 1, SpringLayout.NORTH, sampleButton);
-		baseLayout.putConstraint(SpringLayout.WEST, sampleField_1, 6, SpringLayout.EAST, sampleButton);
-		baseLayout.putConstraint(SpringLayout.EAST, sampleField_1, -46, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, userTypedText, -12, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, sampleButton, -1, SpringLayout.NORTH, userTypedText);
 		baseLayout.putConstraint(SpringLayout.WEST, sampleButton, 23, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, sampleButton, -10, SpringLayout.SOUTH, this);baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 26, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 0, SpringLayout.WEST, sampleButton);
-		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -21, SpringLayout.NORTH, sampleButton);
-		baseLayout.putConstraint(SpringLayout.EAST, chatArea, -33, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, userTypedText, -43, SpringLayout.EAST, this);
 	}
 
 	/**
@@ -100,17 +115,19 @@ public class ChatbotPanel extends JPanel
 	{
 
 		/**
-		 * When the button is clicked, the text in the textBox is sent to the chatbot, and displayed in the textField.
+		 * When the button is clicked, the text in the textBox is sent to the
+		 * chatbot, and displayed in the textField.
 		 */
 		sampleButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				String userTypedText = sampleField.getText();
-				String chatbotResponse = baseController.sendTextToChatbot(userTypedText);
-				displayTextToUser(userTypedText);
+				String theInput = userTypedText.getText();
+				String chatbotResponse = baseController.sendTextToChatbot(theInput);
+				displayTextToUser(theInput);
 				displayTextToUser(chatbotResponse);
-				sampleField.setText("");
+				chatArea.setText("");
+				chatArea.requestFocus();
 			}
 		});
 
@@ -120,5 +137,4 @@ public class ChatbotPanel extends JPanel
 	{
 		chatArea.append("\n" + input);
 	}
-
 }
