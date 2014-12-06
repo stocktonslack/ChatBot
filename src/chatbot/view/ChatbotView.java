@@ -7,7 +7,6 @@ import chatbot.controller.ChatbotAppController;
 /**
  * What the user see's.
  * @author ssla9721
- *
  */
 public class ChatbotView
 {

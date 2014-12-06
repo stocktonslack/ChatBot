@@ -7,10 +7,29 @@ package chatbot.model;
  */
 public class user
 {
+	/**
+	 * The name of the user
+	 */
 	private String name;
+	
+	/**
+	 * the age of the user.
+	 */
 	private int age;
+	
+	/**
+	 * Whether or not the user is cool.
+	 */
 	private boolean isCool;
+	
+	/**
+	 * The hobbies of the user.
+	 */
 	private String hobbies;
+	
+	/**
+	 * Whether or not the user believes in Harvey Dent!
+	 */
 	private String believesInDent;
 	
 	/**
@@ -30,6 +49,11 @@ public class user
 		this.believesInDent = "";
 	}
 
+	/**
+	 * The getters and setters
+	 * @return
+	 */
+	
 	public String getName() 
 	{
 		return name;

@@ -15,8 +15,7 @@ import java.awt.Font;
  * GUI Panel for our Chatbot
  * 
  * @author ssla9721
- * @version 1.2 Added method calls to listener for Chatbot. Method for sending
- *          info to the panel from the controller.
+ * @version 1.5 Final Project?
  */
 public class ChatbotPanel extends JPanel
 {
@@ -40,6 +39,10 @@ public class ChatbotPanel extends JPanel
 	 * chatbots response.
 	 */
 	private JTextArea chatArea;
+	
+	/**
+	 * The layout of the panel.
+	 */
 	private SpringLayout baseLayout;
 
 	/**
@@ -72,6 +75,9 @@ public class ChatbotPanel extends JPanel
 		chatArea.setEditable(false);
 	}
 
+	/**
+	 * The computer generated code, for the setup of the frame and panel.
+	 */
 	private void setupPanel()
 	{
 		this.setBackground(new Color(102, 204, 102));
@@ -133,6 +139,10 @@ public class ChatbotPanel extends JPanel
 
 	}
 
+	/**
+	 * This takes whatever text you send to it and puts it in the chatArea, so that everyone can see it.
+	 * @param input
+	 */
 	public void displayTextToUser(String input)
 	{
 		chatArea.append("\n" + input);

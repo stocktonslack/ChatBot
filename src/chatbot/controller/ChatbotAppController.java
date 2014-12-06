@@ -10,7 +10,7 @@ import chatbot.view.ChatbotView;
  * controlling the view and model packages.
  * 
  * @author ssla9721
- *@version 1.4 11/4/14 - changed the GUI reference added a few things to help controll the flow of it.
+ *@version 1.6 11/4/14 - Final Project?
  */
 public class ChatbotAppController
 {
@@ -70,6 +70,11 @@ public class ChatbotAppController
 		((ChatbotPanel) baseFrame.getContentPane()).displayTextToUser(startMessage);	
 	}
 
+	/**
+	 * This takes the text from the user and then it sends it off to the processedText method in the chatbot.
+	 * @param userInput 
+	 * @return this returns what it recieves back from the chatbot.
+	 */
 	public String sendTextToChatbot(String userInput)
 	{
 		String respondText = "";

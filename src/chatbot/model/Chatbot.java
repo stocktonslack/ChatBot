@@ -3,6 +3,11 @@ package chatbot.model;
 import java.util.ArrayList;
 import chatbot.model.user;
 
+/**
+ * The Chatbot, in it's fullness, all of the methods to run it, for responses and reply's.
+ * @author stockton
+ *
+ */
 public class Chatbot {
 	/**
 	 * The content that is input from the user, for checking
