@@ -5,7 +5,7 @@ package chatbot.model;
  * @author ssla9721
  *
  */
-public class user
+public class User
 {
 	/**
 	 * The name of the user
@@ -32,6 +32,12 @@ public class user
 	 */
 	private String believesInDent;
 	
+	
+	public User()
+	{
+		
+	}
+	
 	/**
 	 * The characteristics to ask the user about
 	 * @param name
@@ -40,7 +46,7 @@ public class user
 	 * @param hobbies
 	 * @param believesInDent
 	 */
-	public user(String name, int age, boolean iscool, String hobbies, String believesInDent)
+	public User(String name, int age, boolean iscool, String hobbies, String believesInDent)
 	{
 		this.name = "";
 		this.age = -999;

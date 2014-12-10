@@ -1,7 +1,7 @@
 package chatbot.model;
 
 import java.util.ArrayList;
-import chatbot.model.user;
+import chatbot.model.User;
 
 /**
  * The Chatbot, in it's fullness, all of the methods to run it, for responses and reply's.
@@ -11,7 +11,7 @@ import chatbot.model.user;
 public class Chatbot {
 	/**
 	 * The content that is input from the user, for checking
-	 */
+	 */ 
 	private String contentArea;
 
 	/**
@@ -38,7 +38,7 @@ public class Chatbot {
 	 * The real life person outside the Chatbot, this is where we store
 	 * information about them.
 	 */
-	private user myUser;
+	private User myUser;
 
 	/**
 	 * Determines the maximum length, for the string checker.
@@ -59,7 +59,7 @@ public class Chatbot {
 		contentArea = "";
 		userInputList = new ArrayList<String>();
 		memeList = new ArrayList<String>();
-		myUser = new user();
+		myUser = new User();
 		fillTheMemeList();
 		
 
@@ -96,7 +96,7 @@ public class Chatbot {
 		// allows anyone to change the Chatbot name if they call setName
 	}
 
-	public void setMyUser(user myUser)
+	public void setMyUser(User myUser)
 	{
 		this.myUser = myUser;
 	}
